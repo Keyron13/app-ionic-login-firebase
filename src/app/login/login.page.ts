@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from './../service/auth.service';
 
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,12 +17,12 @@ export class LoginPage implements OnInit {
     password: ['', [Validators.required]],
   })
 
-  constructor(private formBuilder:FormBuilder, private auth:AuthService, private router:Router) { }
+  constructor(private formBuilder:FormBuilder, private auth:AuthService, private router:Router, private toast: ToastrService) { }
 
   ngOnInit() {
   }
 
-  login(form:any){
+  login(form:any):void{
 
     if(this.form.valid){
 
@@ -36,9 +38,11 @@ export class LoginPage implements OnInit {
       this.auth.login(body.email, body.password)
 
       .then(() => {
-        this.router.navigate(['/home'])
+        this.toast.success('Se inicio sesión', 'Ingreso exitoso...')
+        this.router.navigate(['/home']);
       })
-      .catch((error) => {
+      .catch((error: any) => {
+        this.toast.error('Correo o Contraseña incorrectos o no existente', 'Ingreso erroneo...')
         console.log(error);
       });
 

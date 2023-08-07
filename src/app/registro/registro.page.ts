@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService} from './../service/auth.service';
 
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -16,7 +18,7 @@ export class RegistroPage implements OnInit {
     alias: ['', [Validators.required]],
   })
 
-  constructor(private formBuilder:FormBuilder, private auth: AuthService, private router:Router) { }
+  constructor(private formBuilder:FormBuilder, private auth: AuthService, private router:Router, private toast: ToastrService) { }
 
   ngOnInit() {
   }
@@ -38,9 +40,11 @@ export class RegistroPage implements OnInit {
       this.auth.register(body.email, body.password)
 
       .then(() => {
+        this.toast.success('Cuenta creada con exito', 'Ingreso exitoso...')
         this.router.navigate(['/home'])
       })
       .catch((error) => {
+        this.toast.error('Ingrese los datos de manera correcta o cuenta ya existente', 'Registro erroneo...')
         console.log(error);
       });
 
