@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="registrarse_div">
+    <ion-label class="registrarse_txt">Registrarse</ion-label>
+  </div>
+  <form [formGroup]="form" (submit)="registro(form.value)" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="alias" type="text"><ion-icon name="person-outline" style="margin-right: 10px;"></ion-icon></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Correo Electronico</ion-label>
+        <ion-input formControlName="email" type="email"><ion-icon name="mail-outline" style="margin-right: 10px;"></ion-icon></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input formControlName="password" type="password"><ion-icon name="finger-print-outline" style="margin-right: 10px;"></ion-icon></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="botones">
+      <div>
+        <ion-toolbar class="toolbar">
+          <ion-buttons>
+            <ion-button color="medium" shape="round" fill="outline" routerLink="/login" routerDirection="back" type="button" expand="block">Login</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
+      <div>
+        <ion-toolbar class="toolbar">
+          <ion-buttons>
+            <ion-button color="secondary" shape="round" fill="outline" type="submit" expand="block">Registrarse</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
+    </div>
+  </form>
+</ion-content>

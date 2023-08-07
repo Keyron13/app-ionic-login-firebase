@@ -1,0 +1,27 @@
+.login_div{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: 40%;
+  margin-bottom: 50px;
+}
+.login_txt{
+  font-size: 25pt;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.botones{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+}
+ion-button{
+  width: 150px;
+  height: 40px;
+}
+
+.toolbar{
+  border-radius: 25px;
+}

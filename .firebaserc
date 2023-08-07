@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "login-41741": {
+      "hosting": {
+        "app": [
+          "login-41741"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "login-41741"
+  }
+}

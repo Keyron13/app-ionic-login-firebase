@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login_div">
+    <ion-label class="login_txt">Ingreso</ion-label>
+  </div>
+  <form [formGroup]="form" (submit)="login(form.value)" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Correo Electronico</ion-label>
+        <ion-input formControlName="email" type="email"><ion-icon name="mail-outline" style="margin-right: 10px;"></ion-icon></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input formControlName="password" type="password"><ion-icon name="finger-print-outline" style="margin-right: 10px;"></ion-icon></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="botones">
+      <div>
+        <ion-toolbar class="toolbar">
+          <ion-buttons>
+            <ion-button color="medium" shape="round" fill="outline" routerLink="/registro" type="button" expand="block">Registrarse</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
+      <div>
+        <ion-toolbar class="toolbar">
+          <ion-buttons>
+            <ion-button color="secondary" shape="round" fill="outline" type="submit" expand="block">Ingresar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
+    </div>
+  </form>
+</ion-content>

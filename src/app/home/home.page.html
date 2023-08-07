@@ -1,0 +1,50 @@
+<ion-menu contentId="main-content">
+
+  <ion-content class="ion-padding">
+    <div class="navbar">
+
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" src="https://cdn.domestika.org/c_fill,dpr_1.0,f_auto,h_1200,pg_1,t_base_params,w_1200/v1589759117/project-covers/000/721/921/721921-original.png?1589759117" />
+      </ion-avatar>
+
+      <ng-container *ngIf="user$ | async as user">
+
+        <div>
+          <h3>Usuario</h3>
+        </div>
+
+        <div>
+          <h5>{{ user.email }}</h5>
+        </div>
+
+      </ng-container>
+
+      <div class="logout">
+        <ion-col>
+          <ion-button (click)="logout()" type="button" expand="block">Logout</ion-button>
+        </ion-col>
+      </div>
+
+    </div>
+  </ion-content>
+
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <div>
+      <h1>Estas en el HOME</h1>
+    </div>
+  </ion-content>
+
+</div>
