@@ -30,8 +30,7 @@ export class LoginPage implements OnInit {
 
       const body:any={
         email:form.email,
-        password:form.password,
-        confirmPassword:form.confirmPassword
+        password:form.password
       }
 
       /* const { email, password} = this.form.getRawValue(); */
@@ -53,4 +52,41 @@ export class LoginPage implements OnInit {
     }
 
   }
+
+  ingresoGitHub(){
+    this.auth.loginWithGitHub()
+    .then(() => {
+      this.toast.success('Se inicio sesión con GitHub', 'Ingreso exitoso...')
+      this.router.navigate(['/home']);
+    })
+    .catch((error: any) => {
+      this.toast.error('Upss al parecer no se pudo ingresar con GitHub', 'Ingreso erroneo...')
+      console.log(error);
+    });
+  }
+
+  ingresoGoogle(){
+    this.auth.loginWithGoogle()
+    .then(() => {
+      this.toast.success('Se inicio sesión con Google', 'Ingreso exitoso...')
+      this.router.navigate(['/home']);
+    })
+    .catch((error: any) => {
+      this.toast.error('Upss al parecer no se pudo ingresar con Google', 'Ingreso erroneo...')
+      console.log(error);
+    });
+  }
+
+  ingresoFacebook(){
+    this.auth.loginWithFacebook()
+    .then(() => {
+      this.toast.success('Se inicio sesión con Faceboook', 'Ingreso exitoso...')
+      this.router.navigate(['/home']);
+    })
+    .catch((error: any) => {
+      this.toast.error('Upss al parecer no se pudo ingresar con Facebook', 'Ingreso erroneo...')
+      console.log(error);
+    });
+  }
+
 }

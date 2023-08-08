@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, authState } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, authState, signInWithPopup, GithubAuthProvider, GoogleAuthProvider, FacebookAuthProvider } from '@angular/fire/auth';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -19,6 +19,18 @@ export class AuthService {
   login(email: string, password: string){
     console.log(email,password)
     return signInWithEmailAndPassword(this.afAuth, email, password);
+  }
+
+  loginWithGitHub(){
+    return signInWithPopup(this.afAuth, new GithubAuthProvider());
+  }
+
+  loginWithGoogle(){
+    return signInWithPopup(this.afAuth, new GoogleAuthProvider());
+  }
+
+  loginWithFacebook(){
+    return signInWithPopup(this.afAuth, new FacebookAuthProvider());
   }
 
   logout(){
