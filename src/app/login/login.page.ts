@@ -89,4 +89,16 @@ export class LoginPage implements OnInit {
     });
   }
 
+  ingresoMicrosoft(){
+    this.auth.loginWithMicrosoft()
+    .then(() => {
+      this.toast.success('Se inicio sesión con Microsoft', 'Ingreso exitoso...')
+      this.router.navigate(['/home']);
+    })
+    .catch((error: any) => {
+      this.toast.error('Upss al parecer no se pudo ingresar con Microsoft', 'Ingreso erroneo...')
+      console.log(error);
+    });
+  }
+
 }

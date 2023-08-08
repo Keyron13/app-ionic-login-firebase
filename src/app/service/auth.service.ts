@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, authState, signInWithPopup, GithubAuthProvider, GoogleAuthProvider, FacebookAuthProvider } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, authState, signInWithPopup, GithubAuthProvider, GoogleAuthProvider, FacebookAuthProvider, OAuthProvider, provideAuth } from '@angular/fire/auth';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -31,6 +31,10 @@ export class AuthService {
 
   loginWithFacebook(){
     return signInWithPopup(this.afAuth, new FacebookAuthProvider());
+  }
+
+  loginWithMicrosoft(){
+    return signInWithPopup(this.afAuth, new OAuthProvider('microsoft.com'));
   }
 
   logout(){
